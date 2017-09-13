@@ -43,13 +43,13 @@ description: >
           <div class="caption">
 
             <div class="post-thumb">
-              <a href="/kandidaten/{{ candidate.slug }}"><img src="/assets/avatars/{{ candidate.slug }}.png" class="img-fluid" alt="Avatar von {{ candidate.first_name }} {{ candidate.last_name }}."></a>
+              <a href="/kandidaten/{{ candidate.slug }}.html"><img src="/assets/avatars/{{ candidate.slug }}.png" class="img-fluid" alt="Avatar von {{ candidate.first_name }} {{ candidate.last_name }}."></a>
             </div>
 
             <span class="post-tag">#{{ candidate.hashtag }}</span>
-            <a href="post-image.html" class="post-title">Zitat:</a>
+            <a href="/kandidaten/{{ candidate.slug }}.html" class="post-title">Zitat:</a>
             <p class="post-description">"{{ quote.short_quote }}"</p>
-            <span class="post-date"><a href="/kandidaten/{{ candidate.slug }}">Mehr Informationen zu<br />{{ candidate.first_name }} {{ candidate.last_name }}</a></span>
+            <span class="post-date"><a href="/kandidaten/{{ candidate.slug }}.html">Mehr Informationen zu<br />{{ candidate.first_name }} {{ candidate.last_name }}</a></span>
           </div>
         </div>
       </section>
@@ -102,7 +102,7 @@ description: >
                       {% assign candidate = c %}
                     {% endif %}
                   {% endfor %}
-                  <td><a href="/kandidaten/{{ candidate.slug }}">{{ candidate.first_name }} {{ candidate.last_name }}</a></td>
+                  <td><a href="/kandidaten/{{ candidate.slug }}.html">{{ candidate.first_name }} {{ candidate.last_name }}</a></td>
                   <td>{{ date.location }}</td>
                   <td>{{ date.start }}</td>
                   {% if end_counter > 0 %}
