@@ -1,0 +1,118 @@
+---
+layout: default
+title: OB Kandidaten
+description: >
+  Ein Vergleich der Kandidaten für die OB-Wahl in Koblenz.
+---
+<div id="posts" class="container">
+  <div class="row">
+    <section class="col-md-12 wow22 fadeIn">
+      <div class="post featured">
+        <div class="row">
+          <div class="col-md-6 media">
+            <img src="/assets/2017/09/12/stimmzettel.jpg" class="img-fluid" />
+          </div>
+          <div class="col-md-6 caption">
+            {% for post in site.posts limit:1 %}
+              <span class="post-tag">{% for tag in post.tags %}#{{ tag }} {% endfor %}</span>
+              <a href="{{ post.url }}" class="post-title">{{ post.title | escape }}</a>
+              <span class="post-date">{{ post.date | date: '%d.%m.%Y' }}</span>
+              {{ post.content | truncatewords: 200 }}
+              <a class="btn btn-ada-dark" href="{{ post.url }}">Alles lesen</a>
+
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="posts" class="container">
+  <div class="row">
+    {% for candidate in site.data.candidates %}
+      {% for q in site.data.quotes %}
+        {% if q.slug == candidate.slug %}
+          {% assign quote = q %}
+        {% endif %}
+      {% endfor %}
+      <section class="col-md-3 wow2 fadeIn" style="visibility: visible; animation-name: fadeIn;">
+        <div class="post">
+          <div class="caption">
+
+            <div class="post-thumb">
+              <a href="/kandidaten/{{ candidate.slug }}"><img src="/assets/avatars/{{ candidate.slug }}.png" class="img-fluid" alt="Avatar von {{ candidate.first_name }} {{ candidate.last_name }}."></a>
+            </div>
+
+            <span class="post-tag">#{{ candidate.hashtag }}</span>
+            <a href="post-image.html" class="post-title">Zitat:</a>
+            <p class="post-description">"{{ quote.short_quote }}"</p>
+            <span class="post-date"><a href="/kandidaten/{{ candidate.slug }}">Mehr Informationen zu<br />{{ candidate.first_name }} {{ candidate.last_name }}</a></span>
+          </div>
+        </div>
+      </section>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Heutige Termine-->
+
+{% assign today = site.time | date: '%d.%m.%Y' %}
+{% assign date_counter=0 %}
+{% assign end_counter=0 %}
+
+{% for date in site.data.dates %}
+  {% if date.date == today %}
+    {% assign date_counter=date_counter | plus:1 %}
+    {% if date.end %}
+      {% assign end_counter=end_counter | plus:1 %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% include vergleichstabelle.html %}
+
+{% if date_counter > 0 %}
+  <div id="documentation">
+    <div class="container">
+      <h2>Aktuelle Termine der Kandidaten (heute)</h2>
+      <p>So weit sie mir bekannt sind. Bitte schicken Sie mir eine E-Mail an <a href="mailto:stefan@wintemreyer.de">stefan@wintermeyer.de</a>, wenn Sie weitere Termine aufführen wollen.</p>
+      <div class="block">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Datum</th>
+              <th>Kandidat</th>
+              <th>Ort</th>
+              <th>Start</th>
+              {% if end_counter > 0 %}
+                <th>Ende</th>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for date in site.data.dates %}
+              {% if date.date == today %}
+                <tr>
+                  <td>{{ date.date }}</td>
+                  {% for c in site.data.candidates %}
+                    {% if c.slug == date.slug %}
+                      {% assign candidate = c %}
+                    {% endif %}
+                  {% endfor %}
+                  <td><a href="/kandidaten/{{ candidate.slug }}">{{ candidate.first_name }} {{ candidate.last_name }}</a></td>
+                  <td>{{ date.location }}</td>
+                  <td>{{ date.start }}</td>
+                  {% if end_counter > 0 %}
+                    <td>{{ date.end }}</td>
+                  {% endif %}
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div><!-- /.container -->
+  </div>
+{% endif %}

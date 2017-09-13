@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "de" }}">
+  {% include head.html %}
+  <body>
+
+    <div id="header">
+      <div class="top">
+        <a class="brand" href="/">
+          OB Kandidaten für Koblenz
+        </a>
+      </div>
+
+      {% include navigation.html %}
+    </div>
+
+    {% for c in site.data.candidates %}
+      {% if c.slug == page.slug %}
+        {% assign candidate = c %}
+      {% endif %}
+    {% endfor %}
+
+    {% for q in site.data.quotes %}
+      {% if q.slug == page.slug %}
+        {% assign quote = q %}
+      {% endif %}
+    {% endfor %}
+
+    <div id="posts" class="container">
+      <div class="row">
+        <section class="col-md-12 wow2 fadeIn">
+          <div class="post featured">
+            <div class="row">
+              <div class="col-md-6 media">
+                <a href="{{ candidate.homepage }}"><img src="/assets/screenshots/landscape/800x600/{{ candidate.slug }}.png" class="img-fluid" alt="Screenshot der Homepage" /></a>
+              </div>
+              <div class="col-md-6 caption">
+                <span class="post-tag">#{{ candidate.hashtag }} #koblenz</span>
+                <a href="{{ candidate.homepage }}" class="post-title">{{ candidate.first_name }} {{ candidate.last_name }}</a>
+
+                <p class="post-description">
+                  {{ candidate.street }}<br />
+                  {{ candidate.zip_code }} {{ candidate.city }}
+                </p>
+                <p class="post-description">
+                  {% if candidate.telephone %}
+                  Telefon: {{ candidate.telephone }}<br />
+                  {% endif %}
+                  {% if candidate.email %}
+                  E-Mail: <a href="mailto:{{ candidate.email }}">{{ candidate.email }}</a><br />
+                  {% endif %}
+                  {% if candidate.homepage %}
+                  Homepage: <a href="{{ candidate.homepage }}">{{ candidate.homepage }}</a>
+                  {% endif %}
+                </p>
+                <ul class="list-inline">
+                  {% if candidate.facebook %}
+                    <li class="list-inline-item"><a href="https://www.facebook.com/{{ candidate.facebook }}"><i class="fa fa-facebook"></i></a></li>
+                  {% endif %}
+                  {% if candidate.twitter %}
+                    <li class="list-inline-item"><a href="https://twitter.com/{{ candidate.twitter }}"><i class="fa fa-twitter"></i></a></li>
+                  {% endif %}
+                  {% if candidate.instagram %}
+                    <li class="list-inline-item"><a href="https://www.instagram.com/{{ candidate.instagram }}"><i class="fa fa-instagram"></i></a></li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    {% assign image_path = 'people/' | append: candidate.slug %}
+    {% assign image_counter=0 %}
+
+    {% for image in site.static_files %}
+      {% if image.path contains image_path %}
+        {% assign image_counter=image_counter | plus:1 %}
+      {% endif %}
+    {% endfor %}
+
+    <div id="posts" class="container">
+          <div class="row">
+            {% if quote.long_quote %}
+            <section class="{% if image_counter > 0 %}col-md-4{% else %}col-md-6{% endif %} wow2 fadeIn" style="visibility: visible; animation-name: fadeIn;">
+              <div class="post">
+                <div class="caption">
+
+                  <div class="post-thumb">
+                    <img src="/assets/avatars/{{ candidate.slug }}.png" class="img-fluid">
+                  </div>
+
+                  <span class="post-tag">#{{ candidate.hashtag }} #quote</span>
+                  <a href="post-image.html" class="post-title">E-Mail Zitat:</a>
+                  <p class="post-description">{{ quote.long_quote }}</p>
+                  <span class="post-date"></span>
+                </div>
+              </div>
+            </section>
+            {% endif %}
+
+            <section class="{% if image_counter > 0 %}col-md-4{% else %}col-md-6{% endif %} wow2 fadeIn" style="visibility: visible; animation-name: fadeIn;">
+              <div class="quote">
+
+                <i class="quote-left fa fa-quote-left"></i>
+                <i class="quote-right fa fa-quote-right"></i>
+
+                <div class="text-center">
+                  <img src="/assets/avatars/{{ candidate.slug }}.png" class="quote-face">
+                  <blockquote>
+                    <p>{{ quote.short_quote }}</p>
+                    <footer>{{ candidate.first_name }} {{ candidate.last_name }}</footer>
+                  </blockquote>
+                </div>
+              </div>
+            </section>
+
+
+            {% if image_counter > 0 %}
+              <section class="col-md-4 wow2 fadeIn">
+                <div class="post">
+                  <div class="media">
+                    <div id="slides-1">
+                      {% for image in site.static_files %}
+                          {% if image.path contains image_path %}
+                              <img src="{{ site.baseurl }}{{ image.path }}" class="img-fluid" />
+                          {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <div class="caption text-center">
+                    <a href="post-image.html" class="post-title">Bilder von der Webseite</a>
+                    <span class="post-date"><a href="{{ candidate.homepage }}">{{ candidate.homepage }}</a></span>
+                    {% if candidate.image_copyright %}
+                      <span class="post-date">{{ candidate.image_copyright }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </section>
+            {% endif %}
+
+            <!-- <div class="col-md-12">
+              <div class="text-center">
+                <a href="#" class="btn btn-ada-light load-more">Ältere Posts</a>
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+
+        {% assign date_counter=0 %}
+        {% assign end_counter=0 %}
+
+        {% for date in site.data.dates %}
+          {% if date.slug == page.slug %}
+            {% assign date_counter=date_counter | plus:1 %}
+            {% if date.end %}
+              {% assign end_counter=end_counter | plus:1 %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+
+        {% if date_counter > 0 %}
+          <div id="documentation">
+            <div class="container">
+              <h2>Öffentliche Termine</h2>
+              <p>So weit sie mir bekannt sind. Bitte schicken Sie mir eine E-Mail an <a href="mailto:stefan@wintemreyer.de">stefan@wintermeyer.de</a>, wenn Sie weitere Termine aufführen wollen.</p>
+              <div class="block">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Datum</th>
+                      <th>Ort</th>
+                      <th>Start</th>
+                      {% if end_counter > 0 %}
+                        <th>Ende</th>
+                      {% endif %}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for date in site.data.dates %}
+                      {% if date.slug == page.slug %}
+                        <tr>
+                          <td>{{ date.date }}</td>
+                          <td>{{ date.location }}</td>
+                          <td>{{ date.start }}</td>
+                          {% if end_counter > 0 %}
+                            <td>{{ date.end }}</td>
+                          {% endif %}
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div><!-- /.container -->
+          </div>
+        {% endif %}
+
+    {% include footer.html %}
+
+    <!-- Vendor Scripts -->
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/owl.carousel.js"></script>
+    <script src="/js/wow.min.js"></script>
+
+    <!-- Theme Scripts -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

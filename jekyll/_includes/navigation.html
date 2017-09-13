@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light navbar-ada">
+<a class="navbar-brand" href="/"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kandidaten</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown1">
+          {% for candidate in site.data.candidates %}
+            <a class="dropdown-item" href="/kandidaten/{{ candidate.slug }}">{{ candidate.last_name }}, {{ candidate.first_name }}</a>
+          {% endfor %}
+        </div>
+      </li>
+
+      <li class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown2">
+          {% for post in site.posts limit:10 %}
+            <a class="dropdown-item" href="{{ post.url }}">{{ post.title }} ({{ post.date | date: '%d.%m.%Y' }})</a>
+          {% endfor %}
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.wintermeyer-consulting.de" target="_blank">wintermeyer-consulting.de</a>
+      </li>
+    </ul>
+  </div>
+</nav>

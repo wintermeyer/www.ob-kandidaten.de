@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "de" }}">
+  {% include head.html %}
+  <body>
+    <div id="header">
+      <div class="top">
+        <a class="brand" href="/">
+          OB Kandidaten für Koblenz
+        </a>
+      </div>
+
+      {% include navigation.html %}
+    </div>
+
+    {{ content }}
+
+    {% include footer.html %}
+
+    <!-- Vendor Scripts -->
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/owl.carousel.js"></script>
+
+    <!-- Theme Scripts -->
+    <script src="/js/main.js"></script>
+
+  </body>
+</html>
