@@ -28,9 +28,13 @@ html-minifier -c conf/html-minifier.conf  --file-ext html --input-dir jekyll/_si
 echo "* Compress HTML files"
 echo "** gzip"
 find export/jekyll/_site -name "*.*ml" -exec echo -n "." \; -exec zopfli --i70 {} \;
+find export/jekyll/_site -name "*.css" -exec echo -n "." \; -exec zopfli --i70 {} \;
+find export/jekyll/_site -name "*.js" -exec echo -n "." \; -exec zopfli --i70 {} \;
 echo
 echo "** brotli"
 find export/jekyll/_site -name "*.*ml" -exec echo -n "." \; -exec bro --quality 10 --input {} --output {}.br \;
+find export/jekyll/_site -name "*.css" -exec echo -n "." \; -exec bro --quality 10 --input {} --output {}.br \;
+find export/jekyll/_site -name "*.js" -exec echo -n "." \; -exec bro --quality 10 --input {} --output {}.br \;
 echo
 
 echo "* List file sizes"
