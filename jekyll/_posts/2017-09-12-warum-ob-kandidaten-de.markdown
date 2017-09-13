@@ -7,7 +7,7 @@ hero_image_alt: "Stimmzettel für die Oberbürgermeisterwahl 2017"
 teaser: true
 tags:
   - koblenz
-  - oberbürgermeisterwahl
+  - oberbuergermeisterwahl
   - "2017"
 ---
 Von den Kandidaten zur 2017er Oberbürgermeisterwahl in Koblenz kenne ich keinen einzigen persönlich. Ich sehe nur die Plakate. Meiner Meinung nach viel zu viele, aber das ist ein anderes Thema. Unsympathisch erscheint mir auf den Plakaten keiner. Aber eine sinnvolle Einschätzung ermöglichen sie auch nicht. Ehrlich gesagt ändert sich das auch nicht nach dem Besuch der Webseiten der Kandidaten.

@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "Keine Antwort von Hans-Peter Ackermann"
-date:   2017-09-13 13:03:00 +0200
+date:   2017-09-13 13:00:00 +0200
 tags:
   - koblenz
-  - oberbürgermeisterwahl
+  - oberbuergermeisterwahl
   - "2017"
   - ackermann
 ---

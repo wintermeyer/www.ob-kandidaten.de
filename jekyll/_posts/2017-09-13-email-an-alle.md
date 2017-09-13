@@ -4,7 +4,7 @@ title:  "Eine E-Mail an alle Kandidaten."
 date:   2017-09-13 13:03:00 +0200
 tags:
   - koblenz
-  - oberbürgermeisterwahl
+  - oberbuergermeisterwahl
   - "2017"
 ---
 Am 4. September 2017 habe ich an alle vier Oberbürgermeister-Kandidaten eine E-Mail geschickt. Vorher hatte ich mit keinem der Kandidaten irgend einen Kontakt. Bis auf die Anrede war der Inhalt immer der gleiche.

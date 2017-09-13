@@ -1,14 +1,14 @@
 ---
 layout: post
 title:  "Schnelle Antwort von David Langner"
-date:   2017-09-13 13:03:00 +0200
+date:   2017-09-13 13:01:00 +0200
 tags:
   - koblenz
-  - oberbürgermeisterwahl
+  - oberbuergermeisterwahl
   - "2017"
   - langner
 ---
-Meine E-Mail an Herrn Langer ging morgens um 9:53 Uhr raus. Seine Antwort hatte ich 13:19 Uhr in meiner Inbox. Ich war begeistert. Ein Kandidat, der mir innerhalb von 3 Stunden von seinem iPad antwortet. Und das mitten im heissen Wahlkampf. Respekt!
+[Meine E-Mail an Herrn Langner](/2017/09/13/email-an-alle.html) ging morgens um 9:53 Uhr raus. Seine Antwort hatte ich 13:19 Uhr in meiner Inbox. Ich war begeistert. Ein Kandidat, der mir innerhalb von 3 Stunden von seinem iPad antwortet. Und das mitten im heissen Wahlkampf. Respekt!
 
 Der Inhalt seiner Antwort war allerdings dünn. Da hatte ich mir als Bürger der Stadt Koblenz mehr erhofft:
 
