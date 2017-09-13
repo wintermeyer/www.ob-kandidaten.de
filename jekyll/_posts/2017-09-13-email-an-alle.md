@@ -35,3 +35,10 @@ Mit freundlichen Grüßen
 
 PS: Wenn von Ihnen kein Veto kommt, werde ich Ihre Antwort mit anderen teilen.
 ```
+
+## Die Antworten
+
+Zu jedem Kandidaten habe ich ein eigenes Posting mit der Antwort und meiner persönlichen Analyse geschrieben:
+
+- [Hans-Peter Ackermann](/2017/09/13/keine-antwort-von-hans-peter-ackermann.html)
+- [David Langner](/2017/09/13/schnelle-antwort-von-david-langner.html)
