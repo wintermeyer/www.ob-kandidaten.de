@@ -42,3 +42,5 @@ Zu jedem Kandidaten habe ich ein eigenes Posting mit der Antwort und meiner pers
 
 - [Hans-Peter Ackermann](/2017/09/13/keine-antwort-von-hans-peter-ackermann.html)
 - [David Langner](/2017/09/13/schnelle-antwort-von-david-langner.html)
+- [Bert Flöck](/2017/09/13/antwort-von-bert-floeck.html)
+- [Torsten Schupp](/2017/09/13/antwort-von-torsten-schupp.html)

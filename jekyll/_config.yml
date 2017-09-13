@@ -25,6 +25,7 @@ twitter_username: wintermeyer
 github_username:  wintermeyer
 phone_number_i18n: +49-261-9886803
 phone_number: 0261/9886803
+google_analytics: UA-106386121-1
 
 # Build settings
 markdown: kramdown

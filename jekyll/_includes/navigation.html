@@ -10,7 +10,7 @@
         <a class="nav-link dropdown-toggle" href="#" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kandidaten</a>
         <div class="dropdown-menu" aria-labelledby="dropdown1">
           {% for candidate in site.data.candidates %}
-            <a class="dropdown-item" href="/kandidaten/{{ candidate.slug }}">{{ candidate.last_name }}, {{ candidate.first_name }}</a>
+            <a class="dropdown-item" href="/kandidaten/{{ candidate.slug }}.html">{{ candidate.last_name }}, {{ candidate.first_name }}</a>
           {% endfor %}
         </div>
       </li>
@@ -18,14 +18,16 @@
       <li class="dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
         <div class="dropdown-menu" aria-labelledby="dropdown2">
-          {% for post in site.posts limit:10 %}
+          {% for post in site.posts limit:50 %}
+            {% unless post.teaser %}
             <a class="dropdown-item" href="{{ post.url }}">{{ post.title }} ({{ post.date | date: '%d.%m.%Y' }})</a>
+            {% endunless %}
           {% endfor %}
         </div>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="https://www.wintermeyer-consulting.de" target="_blank">wintermeyer-consulting.de</a>
+        <a class="nav-link" href="https://www.wintermeyer-consulting.de">wintermeyer-consulting.de</a>
       </li>
     </ul>
   </div>
