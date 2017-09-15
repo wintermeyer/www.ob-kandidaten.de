@@ -1,1 +1,12 @@
 /* Add custom styles here */
+
+/* This will make a table 'scrollable' in x direction if needed */
+.responsive-table {
+  overflow-x: auto;
+}
+
+/* rotates the table head links in vertical direction */
+.responsive-table thead a {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
