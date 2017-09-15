@@ -2,15 +2,7 @@
 <html lang="{{ page.lang | default: site.lang | default: "de" }}">
   {% include head.html %}
   <body>
-    <div id="header">
-      <div class="top">
-        <a class="brand" href="/">
-          OB Kandidaten für Koblenz
-        </a>
-      </div>
-
-      {% include navigation.html %}
-    </div>
+    {% include header.html %}
 
     {{ content }}
 
