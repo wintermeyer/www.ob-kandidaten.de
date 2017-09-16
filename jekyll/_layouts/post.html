@@ -1,41 +1,33 @@
 ---
 layout: default
 ---
-{% if page.hero_image %}
-  <div id="posts" class="container">
-    <div class="row">
-      <section class="col-md-12 wow22 fadeIn">
-        <div class="post featured">
-          <div class="row">
-            <div class="col-md-6 media">
-              <img src="{{ page.hero_image }}" class="img-fluid" alt= "{{ page.hero_image_alt}}" />
+<div id="single" class="container">
+  <section class="col-md-12 wow22 fadeIn">
+    <div class="post featured">
+      {% if page.hero_image %}
+        <div class="row">
+          <div class="col-md-6 media">
+            <img src="{{ page.hero_image }}" class="img-fluid" alt= "{{ page.hero_image_alt}}" />
+          </div>
+          <div class="col-md-6 caption">
+            <div class="header">
+              <span class="post-tag">{% for tag in page.tags %}#{{ tag }} {% endfor %}</span>
+              <h1>{{ page.title }}</h1>
             </div>
-            <div class="col-md-6 caption">
-              {% for post in site.posts limit:1 %}
-                <span class="post-tag">{% for tag in page.tags %}#{{ tag }} {% endfor %}</span>
-                <a href="{{ post.url }}" class="post-title">{{ post.title | escape }}</a>
-                <span class="post-date">{{ post.date | date: '%d.%m.%Y' }}</span>
-                {{ post.content }}
-              {% endfor %}
-            </div>
+
+            {{ content }}
           </div>
         </div>
-      </section>
-    </div>
-  </div>
-{% else %}
-<div id="single">
-  <div class="container">
-    <div class="post">
-      <div class="caption">
-        <div class="header">
-          <span class="post-tag">{% for tag in page.tags %}#{{ tag }} {% endfor %}</span>
-          <h1>{{ page.title }}</h1>
-        </div>
+      {% else %}
+        <div class="caption">
+          <div class="header">
+            <span class="post-tag">{% for tag in page.tags %}#{{ tag }} {% endfor %}</span>
+            <h1>{{ page.title }}</h1>
+          </div>
 
-        {{ content }}
-      </div>
+          {{ content }}
+        </div>
+      {% endif %}
     </div>
-  </div>
+  </section>
 </div>
-{% endif %}

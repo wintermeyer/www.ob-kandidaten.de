@@ -2,7 +2,7 @@
 layout: post
 title:  "Warum ob-kandidaten.de?"
 date:   2017-09-12 14:02:06 +0200
-hero_image: "/assets/2017/09/12/stimmzettel.jpg"
+hero_image: /assets/2017/09/12/stimmzettel.jpg
 hero_image_alt: "Stimmzettel für die Oberbürgermeisterwahl 2017"
 teaser: true
 tags:

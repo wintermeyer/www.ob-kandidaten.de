@@ -14,3 +14,13 @@
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
+
+/* This style removes unnecessary margin in single posts with hero_image */
+#single .caption {
+  margin: 0;
+}
+
+/* removes unnecessary space between text and the top */
+#posts .post.featured .caption {
+  margin-top: 0;
+}
